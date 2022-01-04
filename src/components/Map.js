@@ -10,7 +10,7 @@ const Map =({location}) => {
                 <iframe
                     className='map'
                     id="gmap_canvas"
-                    src={`https://maps.google.com/maps?q=${location.lat},${location.lon}&t=&z=11&ie=UTF8&iwloc=&output=embed`}
+                    src={`https://maps.google.com/maps?q=${location.latitude},${location.longitude}&t=&z=11&ie=UTF8&iwloc=&output=embed`}
                     frameBorder="0"
                     scrolling="no"
                     marginHeight="0"

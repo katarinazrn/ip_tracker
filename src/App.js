@@ -9,6 +9,7 @@ const App = () => {
   const [ip, setIp] = useState(null);
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(false);
+  const [errorMessage,setErrorMessage]=useState('');
 
   const setCurrent = () => {
     fetch('https://api.ipify.org/?format=json')
@@ -23,11 +24,12 @@ const App = () => {
 
   useEffect(() => {
     if (ip) {
-      fetch(`//ip-api.com/json/${ip}`)
+      fetch(`https://ipapi.co/${ip}/json`)
         .then(res => res.json())
         .then(data => {
-          if (data.status === 'fail') {
+          if (data.error) {
             setError(true);
+            setErrorMessage(data.reason);
           }
           else {
             setError(false);

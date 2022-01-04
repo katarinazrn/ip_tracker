@@ -5,10 +5,10 @@ const Location=({location})=>{
 
     return(
         <div className="location">
-            <span>country: &nbsp;<b>{location.country}</b></span> 
+            <span>country: &nbsp;<b>{location.country_name}</b></span> 
             <span>region:&nbsp;<b>{location.regionName}</b> </span> 
             <span>city:&nbsp;<b>{location.city}</b></span>
-            <span>hostname:&nbsp;<b>{location.isp}</b></span>
+            <span>org:&nbsp;<b>{location.org}</b></span>
         </div>
     )
 }
