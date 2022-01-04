@@ -1,11 +1,11 @@
-body{
+body {
   background-image: linear-gradient(rgb(86, 22, 122), rgb(17, 17, 173));
   color: white;
   margin: 0;
   padding: 0;
 }
 
-html{
+html {
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -29,13 +29,13 @@ html{
   bottom: 0;
 }
 
-.map{
+.map {
   margin: 0;
   width: 100%;
   height: 100%;
 }
 
-.container{
+.container {
   padding-top: 5px;
   position: relative;
   height: 35vh;
@@ -43,34 +43,34 @@ html{
   justify-content: center;
 }
 
-.error{
+.error {
   color: salmon;
   text-align: center;
   font-size: 20px;
 }
 
-.content{
+.content {
   position: absolute;
   bottom: 15px;
   margin: 0 auto;
 }
 
-.location{
+.location {
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
 
-.location span{
+.location span {
   margin: 5px;
 }
 
-.ip{
+.ip {
   display: flex;
   justify-content: center;
 }
 
-.ip button{
+.ip button {
   background-color: tomato;
   border: thistle;
   color: white;
@@ -79,11 +79,11 @@ html{
   cursor: pointer;
 }
 
-.ip button:hover{
+.ip button:hover {
   background-color: rgb(184, 44, 19);
 }
 
-.ip input{
+.ip input {
   padding: 4px 12px;
   font-size: 14px;
   text-align: center;
@@ -93,33 +93,60 @@ html{
   outline: none;
 }
 
-.input{
+.input {
   background-color: white;
   display: flex;
 }
 
-.input span{
+.input span {
   padding: 4px;
   font-size: 18px;
   color: lightblue;
   cursor: pointer;
 }
 
-#header{
+#header {
   text-align: center;
 }
 
-@media (max-width: 500px) {
-  .location{
-    display: block;
+#loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 99;
+}
+
+#loading img {
+  z-index: 100;
+  width: 30px;
+  height: auto;
+  margin-top: 15px;
+}
+
+@media (max-width: 580px) {
+  .container {
+    height: auto;
   }
 
-  .location span{
+  .content {
+    position: relative;
+  }
+
+  .mapouter {
+    margin-top: auto;
+    position: relative;
+  }
+
+  .location {
+    display: block;
+  }
+  .location span {
     display: flex;
     justify-content: center;
   }
 
-  .ip input{
+  .ip input {
     width: auto;
     padding: 4px 2px;
   }

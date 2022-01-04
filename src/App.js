@@ -2,20 +2,28 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import IP from './components/IP';
+import Loading from './components/Loading';
 import Location from './components/Location';
 import Map from './components/Map';
 
 const App = () => {
   const [ip, setIp] = useState(null);
   const [location, setLocation] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [errorMessage,setErrorMessage]=useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const setCurrent = () => {
+    setLoading(true);
     fetch('https://api.ipify.org/?format=json')
       .then(res => res.json())
-      .then(data => setIp(data.ip))
-      .catch(err => console.log(err));
+      .then(data => {
+        setIp(data.ip);
+      })
+      .catch(err => {
+        setError(true);
+        setErrorMessage(err);
+      });
   }
 
   useEffect(() => {
@@ -35,22 +43,24 @@ const App = () => {
             setError(false);
             setLocation(data)
           }
+          setLoading(false);
         })
-        .catch(err => console.log(err))
     }
   }, [ip])
+
 
   return (
     <div>
       <div className='container'>
         <div className='content'>
           <Header />
-          <IP setCurrent={setCurrent} setIp={setIp} ip={ip} />
-          {error && <p className='error'>Invalid ip address</p>}
-          {!error && <Location location={location} />}
+          {loading && <Loading />}
+          {!loading && <IP setCurrent={setCurrent} setIp={setIp} ip={ip} />}
+          {error && <p className='error'>{errorMessage}</p>}
+          {!error && !loading && <Location location={location} />}
         </div>
       </div>
-      {!error && <Map location={location} />}
+      {!error && !loading && <Map location={location} />}
     </div>
   );
 }
