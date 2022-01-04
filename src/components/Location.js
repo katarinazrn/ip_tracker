@@ -8,7 +8,7 @@ const Location=({location})=>{
             <span>country: &nbsp;<b>{location.country}</b></span> 
             <span>region:&nbsp;<b>{location.regionName}</b> </span> 
             <span>city:&nbsp;<b>{location.city}</b></span>
-            <span>isp:&nbsp;<b>{location.isp}</b></span>
+            <span>hostname:&nbsp;<b>{location.isp}</b></span>
         </div>
     )
 }

@@ -23,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     if (ip) {
-      fetch(`http://ip-api.com/json/${ip}`)
+      fetch(`//ip-api.com/json/${ip}`)
         .then(res => res.json())
         .then(data => {
           if (data.status === 'fail') {
