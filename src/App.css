@@ -1,14 +1,17 @@
-body {
-  background-image: linear-gradient(rgb(86, 22, 122), rgb(17, 17, 173));
-  color: white;
-  margin: 0;
-  padding: 0;
-}
+@import url("https://fonts.googleapis.com/css2?family=Monda&display=swap");
 
 html {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-image: linear-gradient(rgb(86, 22, 122), rgb(17, 17, 173));
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: "Monda", sans-serif;
 }
 
 .mapouter {
@@ -134,8 +137,8 @@ html {
   }
 
   .mapouter {
-    margin-top: auto;
-    position: relative;
+    position: absolute;
+    bottom: 0;
   }
 
   .location {

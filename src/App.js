@@ -18,7 +18,11 @@ const App = () => {
     fetch('https://api.ipify.org/?format=json')
       .then(res => res.json())
       .then(data => {
-        setIp(data.ip);
+        setIp(old => {
+          if (old == data.ip)
+            setLoading(false);
+          return data.ip;
+        });
       })
       .catch(err => {
         setError(true);
